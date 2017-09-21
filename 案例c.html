@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #aul {
+            width: 200px;
+            height: 200px;
+            border: 1px solid greenyellow;
+        }
+    </style>
+</head>
+<body>
+<ul id="aul">
+
+</ul>
+<input type="text" id="atext">
+<button id="abut">确定</button>
+</body>
+<script src="../myTools.js"></script>
+<script>
+    var aUl=$("#aul")
+    var aText=$("#atext")
+    var aBut=$("#abut")
+    var aA=$("a",aUl)
+     function dianji (){
+        aUl.innerHTML+="<li>"+aText.value+"<a href='javascript:;'>删除</a></li>"
+//         for(var i=0;i<aA.length;i++) {
+//             function shanchu() {
+//                 this.parentNode.parentNode.removeChild(this.parentNode)
+//             }
+//
+//             bind(aA[i], "click", shanchu)
+//         }
+     }
+    bind(aBut,"click",dianji)
+      function shanchu (e){
+         e=e||event
+         var target= e.target || e.srcElement
+          if(target.nodeName=="A"){
+              aUl.removeChild(target.parentNode)
+          }
+      }
+    bind(aUl,"click",shanchu)
+
+</script>
+</html>
